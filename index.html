@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tax Calculator</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -17,7 +17,6 @@
       <form action="#">
         <div class="income">
           <label for="gross-income">Enter gross annual income:</label>
-      
           <input
             type="text"
             id="gross-income"
@@ -25,13 +24,15 @@
             class="income-input"
           />
           <i
-          class="fa-solid fa-exclamation-circle error-icon"
-          id="gross-income-error"
-        ></i>
+            class="fa-solid fa-exclamation-circle error-icon"
+            id="gross-income-error"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Enter an Appropriate Value"
+          ></i>
         </div>
         <div class="income">
           <label for="extra-income">Enter extra income:</label>
-       
           <input
             type="text"
             id="extra-income"
@@ -39,33 +40,45 @@
             class="income-input"
           />
           <i
-          class="fa-solid fa-exclamation-circle error-icon"
-          id="extra-income-error"
-        ></i>
+            class="fa-solid fa-exclamation-circle error-icon"
+            id="extra-income-error"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Enter an Appropriate Value"
+          ></i>
         </div>
         <div class="income">
           <label for="age-group">Enter age group:</label>
-        
           <select id="age-group">
             <option value="<40">&lt;40</option>
             <option value="≥40 & <60">&ge;40 &lt;60</option>
             <option value="≥60">&ge;60</option>
           </select>
+          <i
+            class="fa-solid fa-exclamation-circle error-icon"
+            id="age-group-error"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Enter an Appropriate Value"
+          ></i>
         </div>
         <div class="income">
           <label for="applicable-deductions"
             >Enter total applicable deductions:</label
           >
-          <i
-            class="fa-solid fa-exclamation-circle error-icon"
-            id="deductions-error"
-          ></i>
           <input
             type="text"
             id="applicable-deductions"
             placeholder=""
             class="income-input"
           />
+          <i
+            class="fa-solid fa-exclamation-circle error-icon"
+            id="deductions-error"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Enter an Appropriate Value"
+          ></i>
         </div>
         <div class="results">
           <p>Estimated Amount</p>

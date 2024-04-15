@@ -1,15 +1,20 @@
-const income = document.querySelector("#gross-income");
+// Selecting elements
+const income = document.getElementById("gross-income");
 const extraIncome = document.getElementById("extra-income");
 const ageGroup = document.getElementById("age-group");
 const deductions = document.getElementById("applicable-deductions");
 const results = document.querySelector(".results-input");
-const calculate = document.querySelector("#calculate");
-const reset = document.querySelector("#reset");
+const calculate = document.getElementById("calculate");
+const reset = document.getElementById("reset");
 const form = document.querySelector("form");
 const grossIncomeError = document.getElementById("gross-income-error");
 const extraIncomeError = document.getElementById("extra-income-error");
 const ageGroupError = document.getElementById("age-group-error");
 const deductionsError = document.getElementById("deductions-error");
+
+// Hide error icons by default
+const errorIcons = document.querySelectorAll('.error-icon');
+errorIcons.forEach(icon => icon.style.display = 'none');
 
 // Reset page
 reset.addEventListener("click", () => {
@@ -24,47 +29,57 @@ calculate.addEventListener("click", (e) => {
   calculateTax();
 });
 
-// Validate input fields
+// Function to validate inputs
 function validateInputs() {
   let isValid = true;
   // Validate gross income
-  if (isNaN(income.value) || income.value === "") {
-    grossIncomeError.style.display = "inline";
+  if (!income.value.trim() || isNaN(income.value)) {
+    displayError(grossIncomeError);
     isValid = false;
   } else {
-    grossIncomeError.style.display = "none";
+    hideError(grossIncomeError);
   }
   // Validate extra income
-  if (isNaN(extraIncome.value) || extraIncome.value === "") {
-    extraIncomeError.style.display = "inline";
+  if (!extraIncome.value.trim() || isNaN(extraIncome.value)) {
+    displayError(extraIncomeError);
     isValid = false;
   } else {
-    extraIncomeError.style.display = "none";
+    hideError(extraIncomeError);
   }
   // Validate age group
   if (ageGroup.value === "") {
-    ageGroupError.style.display = "inline";
+    displayError(ageGroupError);
     isValid = false;
   } else {
-    ageGroupError.style.display = "none";
+    hideError(ageGroupError);
   }
   // Validate deductions
-  if (isNaN(deductions.value) || deductions.value === "") {
-    deductionsError.style.display = "inline";
+  if (!deductions.value.trim() || isNaN(deductions.value)) {
+    displayError(deductionsError);
     isValid = false;
   } else {
-    deductionsError.style.display = "none";
+    hideError(deductionsError);
   }
   return isValid;
 }
 
-// Calculate tax and display modal
+// Function to display error
+function displayError(errorElement) {
+  errorElement.style.display = "inline";
+}
+
+// Function to hide error
+function hideError(errorElement) {
+  errorElement.style.display = "none";
+}
+
+// Calculate tax and display result
 function calculateTax() {
   if (validateInputs()) {
-    const grossIncome = parseFloat(income.value);
+    const grossIncomeValue = parseFloat(income.value);
     const extraIncomeValue = parseFloat(extraIncome.value);
-    const totalDeductions = parseFloat(deductions.value);
-    let overallIncome = grossIncome + extraIncomeValue - totalDeductions;
+    const deductionsValue = parseFloat(deductions.value);
+    const overallIncome = grossIncomeValue + extraIncomeValue - deductionsValue;
     let tax = 0;
     if (overallIncome > 800000) {
       const ageGroupValue = ageGroup.value;

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tax Calculator</h1>
+      <form action="#">
+        <div class="income">
+          <label for="gross-income">Enter gross annual income:</label>
+      
+          <input
+            type="text"
+            id="gross-income"
+            placeholder=""
+            class="income-input"
+          />
+          <i
+          class="fa-solid fa-exclamation-circle error-icon"
+          id="gross-income-error"
+        ></i>
+        </div>
+        <div class="income">
+          <label for="extra-income">Enter extra income:</label>
+       
+          <input
+            type="text"
+            id="extra-income"
+            placeholder=""
+            class="income-input"
+          />
+          <i
+          class="fa-solid fa-exclamation-circle error-icon"
+          id="extra-income-error"
+        ></i>
+        </div>
+        <div class="income">
+          <label for="age-group">Enter age group:</label>
+        
+          <select id="age-group">
+            <option value="<40">&lt;40</option>
+            <option value="≥40 & <60">&ge;40 &lt;60</option>
+            <option value="≥60">&ge;60</option>
+          </select>
+        </div>
+        <div class="income">
+          <label for="applicable-deductions"
+            >Enter total applicable deductions:</label
+          >
+          <i
+            class="fa-solid fa-exclamation-circle error-icon"
+            id="deductions-error"
+          ></i>
+          <input
+            type="text"
+            id="applicable-deductions"
+            placeholder=""
+            class="income-input"
+          />
+        </div>
+        <div class="results">
+          <p>Estimated Amount</p>
+          <input type="text" placeholder="$0" class="results-input" />
+        </div>
+        <div class="buttons">
+          <button id="calculate">Calculate</button>
+          <button id="reset">Reset</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

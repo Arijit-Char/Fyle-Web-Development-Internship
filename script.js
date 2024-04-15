@@ -11,6 +11,9 @@ const grossIncomeError = document.getElementById("gross-income-error");
 const extraIncomeError = document.getElementById("extra-income-error");
 const ageGroupError = document.getElementById("age-group-error");
 const deductionsError = document.getElementById("deductions-error");
+const miniDisplay = document.querySelector(".mini-display");
+const miniDisplayClose = document.querySelector(".mini-display-close");
+const miniDisplayValue = document.querySelector(".mini-display-value");
 
 // Hide error icons by default
 const errorIcons = document.querySelectorAll('.error-icon');
@@ -96,5 +99,14 @@ function calculateTax() {
       }
     }
     results.value = tax > 0 ? tax.toFixed(2) : "No tax";
+    miniDisplayValue.textContent =results.value;
+    miniDisplay.style.display = "block";
   }
 }
+
+// Close mini display
+miniDisplayClose.addEventListener("click", () => {
+  miniDisplay.style.display = "none";
+  document.location.reload();
+});
+

@@ -4,7 +4,9 @@ This is a simple tax calculator web application that helps users estimate their 
 
 ## Live Demo
 
-You can try the live demo [https://taxcalculatorbyarijit.netlify.app/](#).
+You can try the live demo by clicking the button below:
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Click_Here-blue)](https://taxcalculatorbyarijit.netlify.app/) 
 
 ## Features
 

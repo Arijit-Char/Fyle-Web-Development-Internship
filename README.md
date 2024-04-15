@@ -25,7 +25,7 @@ You can try the live demo [https://taxcalculatorbyarijit.netlify.app/](#).
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/tax-calculator.git
+   git clone https://github.com/Arijit-Char/Fyle-Web-Development-Internship.git
    ```
 
 2. Open the `index.html` file in your web browser.
